@@ -41,122 +41,282 @@ public final class MainActivity extends Activity {
     private static final int SUPPORT_LINE = 0xFFF3D1D8;
     private static final int SUPPORT_ACCENT = 0xFFB83254;
     private static final String GITHUB_SPONSORS_URL = "https://github.com/sponsors/furcy75";
-    private static final String KOFI_URL = "https://ko-fi.com/furcy75";
 
     private static final Map<String, String[]> TEXT = new HashMap<>();
     static {
-        TEXT.put("home", new String[]{"Dice10K", "Dice10K", "Dice10K"});
+        TEXT.put("home", new String[]{"Dice10K", "Dice10K", "Dice10K", "Dice10K", "Dice10K"});
         TEXT.put("tagline", new String[]{
                 "Jeu des 10 000 · Une partie, tous les scores, sans rien perdre.",
                 "10,000 Dice Game · One game, every score, nothing lost.",
-                "Juego de los 10 000 · Una partida, todos los puntos, sin perder nada."
+                "Juego de los 10 000 · Una partida, todos los puntos, sin perder nada.",
+                "Gioco dei 10.000 · Una partita, tutti i punti, senza perdere nulla.",
+                "Zehntausend · Ein Spiel, alle Punkte, nichts geht verloren."
         });
-        TEXT.put("resume", new String[]{"Reprendre la partie", "Resume game", "Continuar partida"});
-        TEXT.put("no_active", new String[]{"Aucune partie en cours", "No game in progress", "No hay partidas en curso"});
-        TEXT.put("new_game", new String[]{"Nouvelle partie", "New game", "Nueva partida"});
-        TEXT.put("recent", new String[]{"Dernières parties", "Recent games", "Partidas recientes"});
-        TEXT.put("rules", new String[]{"Règles du jeu", "Game rules", "Reglas del juego"});
-        TEXT.put("language", new String[]{"Langue", "Language", "Idioma"});
-        TEXT.put("players", new String[]{"Joueurs", "Players", "Jugadores"});
-        TEXT.put("choose_players", new String[]{"Choisissez le nombre de joueurs et leurs noms.", "Choose the number of players and their names.", "Elige el número de jugadores y sus nombres."});
-        TEXT.put("start", new String[]{"Commencer la partie", "Start game", "Empezar partida"});
-        TEXT.put("back", new String[]{"Retour", "Back", "Volver"});
-        TEXT.put("scoreboard", new String[]{"Scores", "Scoreboard", "Marcador"});
-        TEXT.put("target", new String[]{"Victoire à exactement 10 000 points", "Win at exactly 10,000 points", "Victoria con exactamente 10 000 puntos"});
-        TEXT.put("total", new String[]{"Total", "Total", "Total"});
-        TEXT.put("record", new String[]{"Inscrire un score", "Record a score", "Anotar puntos"});
-        TEXT.put("current_turn", new String[]{"À vous de jouer : ", "Current player: ", "Turno de: "});
-        TEXT.put("paliers", new String[]{"Paliers récents", "Recent score tiers", "Últimos niveles"});
-        TEXT.put("details", new String[]{"Détail", "Details", "Detalle"});
-        TEXT.put("detail_title", new String[]{"Paliers de ", "Score tiers for ", "Niveles de "});
-        TEXT.put("tap_details", new String[]{"Touchez un joueur pour voir ses paliers.", "Tap a player to view their score tiers.", "Toca un jugador para ver sus niveles."});
-        TEXT.put("no_paliers", new String[]{"Aucun palier. Il faut marquer 600 points en un tour pour entrer ou rouvrir le score.", "No score tier yet. Score 600 points in one turn to enter or reopen.", "Aún no hay nivel. Anota 600 puntos en un turno para entrar o volver a abrir."});
-        TEXT.put("palier", new String[]{"Palier", "Tier", "Nivel"});
-        TEXT.put("removed", new String[]{"retiré", "removed", "retirado"});
-        TEXT.put("need_600", new String[]{"Il faut au moins 600 points en un seul tour pour entrer ou rouvrir le score. Score ignoré.", "At least 600 points in one turn are required to enter or reopen. Score ignored.", "Se necesitan al menos 600 puntos en un turno para entrar o volver a abrir. Puntuación ignorada."});
-        TEXT.put("exact_goal_failure", new String[]{"Il fallait atteindre exactement 10 000 points. Score refusé, tour compté comme un échec.", "You must reach exactly 10,000 points. The score was rejected and the turn counts as a failure.", "Hay que llegar exactamente a 10 000 puntos. Puntuación rechazada; el turno cuenta como fallo."});
-        TEXT.put("select_player", new String[]{"Choisir un joueur", "Choose a player", "Elegir jugador"});
-        TEXT.put("points_hint", new String[]{"Points (négatif pour une correction)", "Points (negative to correct)", "Puntos (negativos para corregir)"});
-        TEXT.put("save_score", new String[]{"Valider", "Save", "Guardar"});
-        TEXT.put("failure", new String[]{"Échec : tour perdu", "Farkle: turn lost", "Fallo: turno perdido"});
-        TEXT.put("evolution", new String[]{"Évolution des scores", "Score history", "Evolución de puntos"});
-        TEXT.put("nothing_yet", new String[]{"Aucune saisie pour le moment.", "No scores recorded yet.", "Todavía no hay puntuaciones."});
-        TEXT.put("undo", new String[]{"Annuler", "Undo", "Deshacer"});
-        TEXT.put("confirm_undo", new String[]{"Supprimer cette saisie ? Le total sera recalculé.", "Delete this entry? The total will be recalculated.", "¿Eliminar esta anotación? Se recalculará el total."});
-        TEXT.put("cancel", new String[]{"Garder", "Keep", "Conservar"});
-        TEXT.put("confirm", new String[]{"Supprimer", "Delete", "Eliminar"});
-        TEXT.put("no_players", new String[]{"Ajoutez au moins 2 joueurs.", "Add at least 2 players.", "Añade al menos 2 jugadores."});
-        TEXT.put("enter_points", new String[]{"Saisissez un nombre de points différent de zéro.", "Enter a non-zero number of points.", "Introduce una cantidad de puntos distinta de cero."});
-        TEXT.put("wins", new String[]{"Victoire de", "Winner:", "Ganador:"});
-        TEXT.put("finished", new String[]{"Partie terminée", "Game finished", "Partida terminada"});
-        TEXT.put("history_winner", new String[]{"Partie terminée · Vainqueur : ", "Finished · Winner: ", "Partida terminada · Ganador: "});
-        TEXT.put("ongoing", new String[]{"En cours", "In progress", "En curso"});
-        TEXT.put("no_history", new String[]{"Aucune partie enregistrée.", "No games recorded.", "No hay partidas guardadas."});
-        TEXT.put("game", new String[]{"Partie", "Game", "Partida"});
-        TEXT.put("delete_game", new String[]{"Supprimer la partie", "Delete game", "Eliminar partida"});
-        TEXT.put("abandon_game", new String[]{"Abandonner sans sauvegarder", "Discard without saving", "Abandonar sin guardar"});
+        TEXT.put("resume", new String[]{"Reprendre la partie", "Resume game", "Continuar partida", "Riprendi partita", "Spiel fortsetzen"});
+        TEXT.put("no_active", new String[]{"Aucune partie en cours", "No game in progress", "No hay partidas en curso", "Nessuna partita in corso", "Kein laufendes Spiel"});
+        TEXT.put("new_game", new String[]{"Nouvelle partie", "New game", "Nueva partida", "Nuova partita", "Neues Spiel"});
+        TEXT.put("recent", new String[]{"Dernières parties", "Recent games", "Partidas recientes", "Partite recenti", "Letzte Spiele"});
+        TEXT.put("rules", new String[]{"Règles du jeu", "Game rules", "Reglas del juego", "Regole del gioco", "Spielregeln"});
+        TEXT.put("language", new String[]{"Langue", "Language", "Idioma", "Lingua", "Sprache"});
+        TEXT.put("players", new String[]{"Joueurs", "Players", "Jugadores", "Giocatori", "Spieler"});
+        TEXT.put("choose_players", new String[]{
+                "Choisissez le nombre de joueurs et leurs noms.",
+                "Choose the number of players and their names.",
+                "Elige el número de jugadores y sus nombres.",
+                "Scegli il numero di giocatori e i loro nomi.",
+                "Wähle die Anzahl der Spieler und ihre Namen."
+        });
+        TEXT.put("start", new String[]{"Commencer la partie", "Start game", "Empezar partida", "Inizia partita", "Spiel starten"});
+        TEXT.put("back", new String[]{"Retour", "Back", "Volver", "Indietro", "Zurück"});
+        TEXT.put("scoreboard", new String[]{"Scores", "Scoreboard", "Marcador", "Punteggi", "Punktestand"});
+        TEXT.put("target", new String[]{
+                "Victoire à exactement 10 000 points",
+                "Win at exactly 10,000 points",
+                "Victoria con exactamente 10 000 puntos",
+                "Vittoria a esattamente 10.000 punti",
+                "Sieg bei genau 10.000 Punkten"
+        });
+        TEXT.put("total", new String[]{"Total", "Total", "Total", "Totale", "Gesamt"});
+        TEXT.put("record", new String[]{"Inscrire un score", "Record a score", "Anotar puntos", "Registra punteggio", "Punkte eintragen"});
+        TEXT.put("current_turn", new String[]{"À vous de jouer : ", "Current player: ", "Turno de: ", "Turno di: ", "Am Zug: "});
+        TEXT.put("paliers", new String[]{"Paliers récents", "Recent score tiers", "Últimos niveles", "Scaglioni recenti", "Letzte Stufen"});
+        TEXT.put("details", new String[]{"Détail", "Details", "Detalle", "Dettagli", "Details"});
+        TEXT.put("detail_title", new String[]{"Paliers de ", "Score tiers for ", "Niveles de ", "Scaglioni di ", "Stufen von "});
+        TEXT.put("tap_details", new String[]{
+                "Touchez un joueur pour voir ses paliers.",
+                "Tap a player to view their score tiers.",
+                "Toca un jugador para ver sus niveles.",
+                "Tocca un giocatore per vedere i suoi scaglioni.",
+                "Tippe auf einen Spieler, um seine Stufen zu sehen."
+        });
+        TEXT.put("no_paliers", new String[]{
+                "Aucun palier. Il faut marquer 600 points en un tour pour entrer ou rouvrir le score.",
+                "No score tier yet. Score 600 points in one turn to enter or reopen.",
+                "Aún no hay nivel. Anota 600 puntos en un turno para entrar o volver a abrir.",
+                "Nessuno scaglione. Segna 600 punti in un turno per entrare o riaprire il punteggio.",
+                "Noch keine Stufe. Erziele 600 Punkte in einem Zug für den Einstieg oder Wiedereinstieg."
+        });
+        TEXT.put("palier", new String[]{"Palier", "Tier", "Nivel", "Scaglione", "Stufe"});
+        TEXT.put("removed", new String[]{"retiré", "removed", "retirado", "rimosso", "entfernt"});
+        TEXT.put("need_600", new String[]{
+                "Il faut au moins 600 points en un seul tour pour entrer ou rouvrir le score. Score ignoré.",
+                "At least 600 points in one turn are required to enter or reopen. Score ignored.",
+                "Se necesitan al menos 600 puntos en un turno para entrar o volver a abrir. Puntuación ignorada.",
+                "Servono almeno 600 punti in un solo turno per entrare o riaprire. Punteggio ignorato.",
+                "Mindestens 600 Punkte in einem Zug sind für den Einstieg nötig. Punkte ignoriert."
+        });
+        TEXT.put("exact_goal_failure", new String[]{
+                "Il fallait atteindre exactement 10 000 points. Score refusé, tour compté comme un échec.",
+                "You must reach exactly 10,000 points. The score was rejected and the turn counts as a failure.",
+                "Hay que llegar exactamente a 10 000 puntos. Puntuación rechazada; el turno cuenta como fallo.",
+                "Devi raggiungere esattamente 10.000 punti. Punteggio rifiutato, il turno conta come fallo.",
+                "Du musst genau 10.000 Punkte erreichen. Punkte abgelehnt, Zug zählt als Fehlwurf."
+        });
+        TEXT.put("select_player", new String[]{"Choisir un joueur", "Choose a player", "Elegir jugador", "Scegli un giocatore", "Spieler wählen"});
+        TEXT.put("points_hint", new String[]{
+                "Points (négatif pour une correction)",
+                "Points (negative to correct)",
+                "Puntos (negativos para corregir)",
+                "Punti (negativo per correggere)",
+                "Punkte (negativ zur Korrektur)"
+        });
+        TEXT.put("save_score", new String[]{"Valider", "Save", "Guardar", "Salva", "Speichern"});
+        TEXT.put("failure", new String[]{"Échec : tour perdu", "Farkle: turn lost", "Fallo: turno perdido", "Fallo: turno perso", "Fehlwurf: Zug verloren"});
+        TEXT.put("evolution", new String[]{"Évolution des scores", "Score history", "Evolución de puntos", "Storico punteggi", "Punkteverlauf"});
+        TEXT.put("nothing_yet", new String[]{
+                "Aucune saisie pour le moment.",
+                "No scores recorded yet.",
+                "Todavía no hay puntuaciones.",
+                "Nessun punteggio registrato.",
+                "Noch keine Einträge vorhanden."
+        });
+        TEXT.put("undo", new String[]{"Annuler", "Undo", "Deshacer", "Annulla", "Rückgängig"});
+        TEXT.put("confirm_undo", new String[]{
+                "Supprimer cette saisie ? Le total sera recalculé.",
+                "Delete this entry? The total will be recalculated.",
+                "¿Eliminar esta anotación? Se recalculará el total.",
+                "Eliminare questa voce? Il totale verrà ricalcolato.",
+                "Diesen Eintrag löschen? Der Punktestand wird neu berechnet."
+        });
+        TEXT.put("cancel", new String[]{"Garder", "Keep", "Conservar", "Mantieni", "Behalten"});
+        TEXT.put("confirm", new String[]{"Supprimer", "Delete", "Eliminar", "Elimina", "Löschen"});
+        TEXT.put("no_players", new String[]{
+                "Ajoutez au moins 2 joueurs.",
+                "Add at least 2 players.",
+                "Añade al menos 2 jugadores.",
+                "Aggiungi almeno 2 giocatori.",
+                "Füge mindestens 2 Spieler hinzu."
+        });
+        TEXT.put("enter_points", new String[]{
+                "Saisissez un nombre de points différent de zéro.",
+                "Enter a non-zero number of points.",
+                "Introduce una cantidad de puntos distinta de cero.",
+                "Inserisci un numero di punti diverso da zero.",
+                "Gib eine Punktzahl ungleich null ein."
+        });
+        TEXT.put("wins", new String[]{"Victoire de", "Winner:", "Ganador:", "Vincitore:", "Sieger:"});
+        TEXT.put("finished", new String[]{"Partie terminée", "Game finished", "Partida terminada", "Partita terminata", "Spiel beendet"});
+        TEXT.put("history_winner", new String[]{
+                "Partie terminée · Vainqueur : ",
+                "Finished · Winner: ",
+                "Partida terminada · Ganador: ",
+                "Terminata · Vincitore: ",
+                "Beendet · Sieger: "
+        });
+        TEXT.put("ongoing", new String[]{"En cours", "In progress", "En curso", "In corso", "Läuft"});
+        TEXT.put("no_history", new String[]{
+                "Aucune partie enregistrée.",
+                "No games recorded.",
+                "No hay partidas guardadas.",
+                "Nessuna partita salvata.",
+                "Keine gespeicherten Spiele."
+        });
+        TEXT.put("game", new String[]{"Partie", "Game", "Partida", "Partita", "Spiel"});
+        TEXT.put("delete_game", new String[]{"Supprimer la partie", "Delete game", "Eliminar partida", "Elimina partita", "Spiel löschen"});
+        TEXT.put("abandon_game", new String[]{
+                "Abandonner sans sauvegarder",
+                "Discard without saving",
+                "Abandonar sin guardar",
+                "Abbandona senza salvare",
+                "Ohne Speichern verwerfen"
+        });
         TEXT.put("confirm_delete_game", new String[]{
                 "Cette partie et tous ses scores seront définitivement supprimés. Continuer ?",
                 "This game and all its scores will be permanently deleted. Continue?",
-                "Esta partida y todas sus puntuaciones se eliminarán definitivamente. ¿Continuar?"
+                "Esta partida y todas sus puntuaciones se eliminarán definitivamente. ¿Continuar?",
+                "Questa partita e tutti i suoi punteggi saranno eliminati definitivamente. Continuare?",
+                "Dieses Spiel und alle zugehörigen Punkte werden dauerhaft gelöscht. Fortfahren?"
         });
-        TEXT.put("cancel_action", new String[]{"Annuler", "Cancel", "Cancelar"});
-        TEXT.put("game_not_found", new String[]{"Cette partie n’existe plus.", "This game no longer exists.", "Esta partida ya no existe."});
-        TEXT.put("failure_event", new String[]{"Échec", "Farkle", "Fallo"});
-        TEXT.put("correction", new String[]{"Correction", "Correction", "Corrección"});
-        TEXT.put("points", new String[]{"points", "points", "puntos"});
-        TEXT.put("theft", new String[]{"Vol de points", "Points stolen", "Robo de puntos"});
-        TEXT.put("theft_popup_title", new String[]{"Vol de points", "Points stolen", "Robo de puntos"});
-        TEXT.put("theft_popup_intro", new String[]{"Égalité : les points suivants sont retirés :", "Tie: the following points are removed:", "Empate: se quitan los siguientes puntos:"});
+        TEXT.put("cancel_action", new String[]{"Annuler", "Cancel", "Cancelar", "Annulla", "Abbrechen"});
+        TEXT.put("game_not_found", new String[]{
+                "Cette partie n’existe plus.",
+                "This game no longer exists.",
+                "Esta partida ya no existe.",
+                "Questa partita non esiste più.",
+                "Dieses Spiel existiert nicht mehr."
+        });
+        TEXT.put("failure_event", new String[]{"Échec", "Farkle", "Fallo", "Fallo", "Fehlwurf"});
+        TEXT.put("correction", new String[]{"Correction", "Correction", "Corrección", "Correzione", "Korrektur"});
+        TEXT.put("points", new String[]{"points", "points", "puntos", "punti", "Punkte"});
+        TEXT.put("theft", new String[]{"Vol de points", "Points stolen", "Robo de puntos", "Furto di punti", "Punktediebstahl"});
+        TEXT.put("theft_popup_title", new String[]{"Vol de points", "Points stolen", "Robo de puntos", "Furto di punti", "Punktediebstahl"});
+        TEXT.put("theft_popup_intro", new String[]{
+                "Égalité : les points suivants sont retirés :",
+                "Tie: the following points are removed:",
+                "Empate: se quitan los siguientes puntos:",
+                "Pareggio: vengono rimossi i seguenti punti:",
+                "Gleichstand: Folgende Punkte werden abgezogen:"
+        });
         TEXT.put("theft_popup_item", new String[]{
                 "%1$s rejoint le total de %2$s : %2$s perd %3$s points.",
                 "%1$s reaches %2$s's total: %2$s loses %3$s points.",
-                "%1$s alcanza el total de %2$s: %2$s pierde %3$s puntos."
+                "%1$s alcanza el total de %2$s: %2$s pierde %3$s puntos.",
+                "%1$s raggiunge il totale di %2$s: %2$s perde %3$s punti.",
+                "%1$s erreicht den Stand von %2$s: %2$s verliert %3$s Punkte."
         });
-        TEXT.put("opening_ignored", new String[]{"Ouverture non atteinte (score ignoré)", "Opening threshold missed (score ignored)", "No alcanzó el mínimo de apertura (puntuación ignorada)"});
-        TEXT.put("legacy_theft", new String[]{"Ancien score annulé", "Previous score voided", "Puntuación anterior anulada"});
-        TEXT.put("three_failures", new String[]{"Perte après 3 échecs", "Loss after 3 failures", "Pérdida tras 3 fallos"});
-        TEXT.put("rules_intro", new String[]{"Une variante courante : convenez des règles avant de commencer, car elles varient selon les tables.", "A common variant: agree on the rules before playing, as they vary between tables.", "Una variante habitual: acordad las reglas antes de jugar, ya que varían según la mesa."});
+        TEXT.put("opening_ignored", new String[]{
+                "Ouverture non atteinte (score ignoré)",
+                "Opening threshold missed (score ignored)",
+                "No alcanzó el mínimo de apertura (puntuación ignorada)",
+                "Soglia di apertura non raggiunta (punteggio ignorato)",
+                "Einstiegshürde nicht erreicht (Punkte ignoriert)"
+        });
+        TEXT.put("legacy_theft", new String[]{
+                "Ancien score annulé",
+                "Previous score voided",
+                "Puntuación anterior anulada",
+                "Punteggio precedente annullato",
+                "Vorherige Punkte gestrichen"
+        });
+        TEXT.put("three_failures", new String[]{
+                "Perte après 3 échecs",
+                "Loss after 3 failures",
+                "Pérdida tras 3 fallos",
+                "Perdita dopo 3 falli",
+                "Verlust nach 3 Fehlwürfen"
+        });
+        TEXT.put("rules_intro", new String[]{
+                "Une variante courante : convenez des règles avant de commencer, car elles varient selon les tables.",
+                "A common variant: agree on the rules before playing, as they vary between tables.",
+                "Una variante habitual: acordad las reglas antes de jugar, ya que varían según la mesa.",
+                "Una variante comune: concordate le regole prima di iniziare, poiché variano da tavolo a tavolo.",
+                "Eine gängige Variante: Einigt euch vor Spielbeginn auf die Regeln, da sie je nach Runde variieren."
+        });
         TEXT.put("rules_body", new String[]{
                 "OBJECTIF ET OUVERTURE\nAtteindre exactement 10 000 points pour gagner. Dépasser 10 000 annule les points du tour et compte comme un échec. Pour entrer dans la partie, il faut marquer au moins 600 points en un tour. En dessous, le score est ignoré. Si le total retombe à 0 ou moins, il faut refaire 600 points en un tour pour rouvrir le score.\n\nPOINTS ET COMBINAISONS\nChaque 1 vaut 100 points et chaque 5 vaut 50 points. Un brelan vaut 1 000 points avec trois 1, sinon la valeur du dé multipliée par 100. Quatre, cinq ou six dés identiques valent respectivement 2, 3 ou 4 fois le brelan. Une suite de 1 à 6 ou trois paires valent 1 500 points.\n\nÉCHEC ET PALIERS\nSans combinaison, le tour s'arrête et rapporte 0 point. Les échecs sont rattachés au palier courant. Au troisième échec de ce palier, son gain est retiré ; les croix du palier précédent sont conservées.\n\nÉGALITÉ ET VOL DE POINTS\nSi un joueur rejoint exactement le total d'un adversaire, celui-ci perd les points de son dernier tour réussi. Exemple : il passe de 800 à 600 si son dernier gain était de 200. On vérifie ensuite les nouvelles égalités et les pertes continuent en cascade. Un même gain ne peut être retiré qu'une fois.\n\nTOUR SUIVANT\nAprès un score validé ou un échec, le tour passe au joueur suivant. Une correction manuelle ne change pas le joueur courant. Les combinaisons et les conditions de fin peuvent varier selon les joueurs ; l'application suit les scores, elle ne lance pas les dés.",
                 "GOAL AND OPENING\nReach exactly 10,000 points to win. Going over 10,000 cancels the turn's points and counts as a failure. To enter the game, score at least 600 points in one turn. A lower score is ignored. If the total falls to 0 or below, score 600 in one turn again to reopen.\n\nPOINTS AND COMBINATIONS\nEach 1 is worth 100 points and each 5 is worth 50. Three 1s are worth 1,000 points; any other three of a kind is worth the die value multiplied by 100. Four, five, or six matching dice are worth 2, 3, or 4 times the three-of-a-kind score. A straight from 1 to 6 or three pairs is worth 1,500 points.\n\nFAILURES AND TIERS\nScoring no combination ends the turn and scores 0. Failures belong to the current tier. On its third failure, that tier's gain is removed; the previous tier's crosses are kept.\n\nTIES AND STOLEN POINTS\nIf a player reaches exactly an opponent's total, that opponent loses the points from their latest successful turn. Example: they drop from 800 to 600 if their latest gain was 200. New ties are then checked and losses repeat in a cascade. A gain can only be removed once.\n\nNEXT TURN\nAfter a score or failure, play passes to the next player. A manual correction does not change the current player. Combinations and end-game rules may vary; this app tracks scores but does not roll dice.",
-                "OBJETIVO Y APERTURA\nLlega exactamente a 10 000 puntos para ganar. Superar los 10 000 anula los puntos del turno y cuenta como fallo. Para entrar en la partida, hay que anotar al menos 600 puntos en un turno. Una puntuación menor se ignora. Si el total vuelve a 0 o menos, hay que anotar 600 puntos en un turno para reabrir el marcador.\n\nPUNTOS Y COMBINACIONES\nCada 1 vale 100 puntos y cada 5 vale 50. Tres 1 valen 1 000 puntos; cualquier otro trío vale el valor del dado multiplicado por 100. Cuatro, cinco o seis dados iguales valen 2, 3 o 4 veces el valor del trío. Una escalera del 1 al 6 o tres parejas valen 1 500 puntos.\n\nFALLOS Y NIVELES\nNo conseguir una combinación termina el turno y suma 0. Los fallos pertenecen al nivel actual. Al tercer fallo, se quitan los puntos de ese nivel y se conservan las cruces del nivel anterior.\n\nEMPATES Y ROBO DE PUNTOS\nSi un jugador alcanza exactamente el total de un rival, este pierde los puntos de su último turno exitoso. Ejemplo: baja de 800 a 600 si su última ganancia fue de 200. Después se comprueban los nuevos empates y las pérdidas continúan en cascada. Cada ganancia solo se puede quitar una vez.\n\nTURNO SIGUIENTE\nDespués de anotar puntos o fallar, el turno pasa al siguiente jugador. Una corrección manual no cambia el jugador actual. Las combinaciones y las condiciones de final pueden variar; esta aplicación registra puntos, no lanza dados."
+                "OBJETIVO Y APERTURA\nLlega exactamente a 10 000 puntos para ganar. Superar los 10 000 anula los puntos del turno y cuenta como fallo. Para entrar en la partida, hay que anotar al menos 600 puntos en un turno. Una puntuación menor se ignora. Si el total vuelve a 0 o menos, hay que anotar 600 puntos en un turno para reabrir el marcador.\n\nPUNTOS Y COMBINACIONES\nCada 1 vale 100 puntos y cada 5 vale 50. Tres 1 valen 1 000 puntos; cualquier otro trío vale el valor del dado multiplicado por 100. Cuatro, cinco o seis dados iguales valen 2, 3 o 4 veces el valor del trío. Una escalera del 1 al 6 o tres parejas valen 1 500 puntos.\n\nFALLOS Y NIVELES\nNo conseguir una combinación termina el turno y suma 0. Los fallos pertenecen al nivel actual. Al tercer fallo, se quitan los puntos de ese nivel y se conservan las cruces del nivel anterior.\n\nEMPATES Y ROBO DE PUNTOS\nSi un jugador alcanza exactamente el total de un rival, este pierde los puntos de su último turno exitoso. Ejemplo: baja de 800 a 600 si su última ganancia fue de 200. Después se comprueban los nuevos empates y las pérdidas continúan en cascada. Cada ganancia solo se puede quitar una vez.\n\nTURNO SIGUIENTE\nDespués de anotar puntos o fallar, el turno pasa al siguiente jugador. Una corrección manual no cambia el jugador actual. Las combinaciones y las condiciones de final pueden variar; esta aplicación registra puntos, no lanza dados.",
+                "OBIETTIVO E APERTURA\nRaggiungi esattamente 10.000 punti per vincere. Superare 10.000 annulla i punti del turno e conta come fallo. Per entrare in partita servono almeno 600 punti in un turno; un punteggio inferiore viene ignorato. Se il totale scende a 0 o meno, servono di nuovo 600 punti in un turno per riaprire.\n\nPUNTI E COMBINAZIONI\nOgni 1 vale 100 punti e ogni 5 vale 50. Tre 1 valgono 1.000 punti; qualsiasi altro tris vale il valore del dado moltiplicato per 100. Quattro, cinque o sei dadi uguali valgono 2, 3 o 4 volte il tris. Una scala da 1 a 6 o tre coppie valgono 1.500 punti.\n\nFALLI E SCAGLIONI\nSenza alcuna combinazione, il turno termina con 0 punti. I falli appartengono allo scaglione corrente. Al terzo fallo di uno scaglione, i suoi punti vengono rimossi; le croci dello scaglione precedente restano.\n\nPAREGGIO E FURTO DI PUNTI\nSe un giocatore raggiunge esattamente il totale di un avversario, questo perde i punti del suo ultimo turno riuscito. Esempio: scende da 800 a 600 se l'ultimo guadagno era 200. Si controllano poi nuovi pareggi e le perdite continuano a cascata. Uno stesso guadagno può essere rimosso una sola volta.\n\nTURNO SUCCESSIVO\nDopo un punteggio o un fallo, il turno passa al giocatore successivo. Una correzione manuale non cambia il giocatore corrente. Le combinazioni e le regole finali possono variare; l'app tiene traccia dei punti, non lancia i dadi.",
+                "ZIEL UND EINSTIEG\nErreiche genau 10.000 Punkte, um zu gewinnen. Über 10.000 annulliert die Punkte des Zugs und zählt als Fehlwurf. Für den Einstieg sind mindestens 600 Punkte in einem Zug nötig; weniger wird ignoriert. Fällt der Stand auf 0 oder darunter, sind erneut 600 Punkte in einem Zug nötig.\n\nPUNKTE UND KOMBINATIONEN\nJede 1 zählt 100 Punkte und jede 5 zählt 50. Drei 1er zählen 1.000 Punkte; jeder andere Drilling zählt den Würfelwert mal 100. Vier, fünf oder sechs gleiche Würfel zählen das 2-, 3- bzw. 4-Fache des Drillings. Eine Straße von 1 bis 6 oder drei Paare zählen 1.500 Punkte.\n\nFEHLWÜRFE UND STUFEN\nOhne Kombination endet der Zug mit 0 Punkten. Fehlwürfe gehören zur aktuellen Stufe. Beim dritten Fehlwurf werden die Punkte dieser Stufe entfernt; die Kreuze der vorherigen Stufe bleiben erhalten.\n\nGLEICHSTAND UND PUNKTEDIEBSTAHL\nErreicht ein Spieler exakt den Stand eines Gegners, verliert dieser die Punkte seines letzten erfolgreichen Zugs. Beispiel: Er fällt von 800 auf 600, wenn der letzte Gewinn 200 war. Danach werden neue Gleichstände geprüft und Abzüge setzen sich als Kaskade fort. Jeder Gewinn kann nur einmal entfernt werden.\n\nNÄCHSTER ZUG\nNach Punkten oder Fehlwurf folgt der nächste Spieler. Eine manuelle Korrektur wechselt den Spieler nicht. Kombinationen und Endregeln können variieren; diese App zählt Punkte und würfelt nicht selbst."
         });
-        TEXT.put("language_names", new String[]{"Français", "English", "Español"});
-        TEXT.put("player_default", new String[]{"Joueur ", "Player ", "Jugador "});
-        TEXT.put("entry_saved", new String[]{"Score enregistré.", "Score saved.", "Puntuación guardada."});
+        TEXT.put("language_names", new String[]{"Français", "English", "Español", "Italiano", "Deutsch"});
+        TEXT.put("player_default", new String[]{"Joueur ", "Player ", "Jugador ", "Giocatore ", "Spieler "});
+        TEXT.put("entry_saved", new String[]{"Score enregistré.", "Score saved.", "Puntuación guardada.", "Punteggio salvato.", "Punkte gespeichert."});
         TEXT.put("tie_message", new String[]{
                 "Égalité : chaque adversaire à ce total perd les points de son dernier tour réussi.",
                 "Tie: each opponent at that total loses the points from their latest successful turn.",
-                "Empate: cada rival con ese total pierde los puntos de su último turno exitoso."
+                "Empate: cada rival con ese total pierde los puntos de su último turno exitoso.",
+                "Pareggio: ogni avversario a questo totale perde i punti del suo ultimo turno riuscito.",
+                "Gleichstand: Jeder Gegner mit diesem Stand verliert die Punkte seines letzten erfolgreichen Zugs."
         });
         TEXT.put("three_failures_message", new String[]{
                 "Trois échecs sur ce palier : son gain est retiré.",
                 "Three failures on this tier: its gain is removed.",
-                "Tres fallos en este nivel: se quitan sus puntos."
+                "Tres fallos en este nivel: se quitan sus puntos.",
+                "Tre falli su questo scaglione: i suoi punti vengono rimossi.",
+                "Drei Fehlwürfe auf dieser Stufe: Ihre Punkte werden abgezogen."
         });
         TEXT.put("cascade_message", new String[]{
                 "Les pertes ont été appliquées en cascade.",
                 "The score losses were applied in a cascade.",
-                "Las pérdidas se aplicaron en cascada."
+                "Las pérdidas se aplicaron en cascada.",
+                "Le perdite sono state applicate a cascata.",
+                "Die Punktabzüge wurden als Kaskade angewendet."
         });
         TEXT.put("no_score_to_remove", new String[]{
                 "Trois échecs consécutifs, mais aucun gain précédent à retirer.",
                 "Three consecutive failures, but there is no previous score to remove.",
-                "Tres fallos consecutivos, pero no hay puntos anteriores que quitar."
+                "Tres fallos consecutivos, pero no hay puntos anteriores que quitar.",
+                "Tre falli consecutivi, ma nessun punteggio precedente da rimuovere.",
+                "Drei Fehlwürfe in Folge, aber keine vorherigen Punkte zum Abziehen."
         });
-        TEXT.put("done", new String[]{"Terminer", "Finish", "Terminar"});
-        TEXT.put("support", new String[]{"♥  Soutenir le projet", "♥  Support the project", "♥  Apoyar el proyecto"});
-        TEXT.put("support_title", new String[]{"Soutenir Dice10K", "Support Dice10K", "Apoyar a Dice10K"});
+        TEXT.put("done", new String[]{"Terminer", "Finish", "Terminar", "Fine", "Fertig"});
+        TEXT.put("support", new String[]{
+                "♥  Soutenir le projet",
+                "♥  Support the project",
+                "♥  Apoyar el proyecto",
+                "♥  Sostieni il progetto",
+                "♥  Projekt unterstützen"
+        });
+        TEXT.put("support_title", new String[]{
+                "Soutenir Dice10K",
+                "Support Dice10K",
+                "Apoyar a Dice10K",
+                "Sostieni Dice10K",
+                "Dice10K unterstützen"
+        });
         TEXT.put("support_message", new String[]{
-                "Dice10K est gratuit, libre, hors ligne et sans publicité. Si l’application vous plaît, vous pouvez soutenir son développement :",
-                "Dice10K is free, open source, offline, and ad-free. If you enjoy the app, you can support its development:",
-                "Dice10K es gratuito, de código abierto, sin conexión y sin anuncios. Si te gusta la aplicación, puedes apoyar su desarrollo:"
+                "Dice10K est gratuit, libre, hors ligne et sans publicité. Si l’application vous plaît, vous pouvez soutenir son développement sur GitHub Sponsors :",
+                "Dice10K is free, open source, offline, and ad-free. If you enjoy the app, you can support its development on GitHub Sponsors:",
+                "Dice10K es gratuito, de código abierto, sin conexión y sin anuncios. Si te gusta la aplicación, puedes apoyar su desarrollo en GitHub Sponsors:",
+                "Dice10K è gratuito, open source, offline e senza pubblicità. Se ti piace l’app, puoi sostenere il suo sviluppo su GitHub Sponsors:",
+                "Dice10K ist kostenlos, Open Source, offline und werbefrei. Wenn dir die App gefällt, kannst du die Entwicklung über GitHub Sponsors unterstützen:"
         });
-        TEXT.put("support_github", new String[]{"GitHub Sponsors", "GitHub Sponsors", "GitHub Sponsors"});
-        TEXT.put("support_kofi", new String[]{"Ko-fi (offrir un café)", "Ko-fi (buy a coffee)", "Ko-fi (invitar a un café)"});
-        TEXT.put("support_browser_error", new String[]{"Impossible d’ouvrir le navigateur.", "Unable to open browser.", "No se pudo abrir el navegador."});
-        TEXT.put("close", new String[]{"Fermer", "Close", "Cerrar"});
+        TEXT.put("support_github", new String[]{
+                "GitHub Sponsors",
+                "GitHub Sponsors",
+                "GitHub Sponsors",
+                "GitHub Sponsors",
+                "GitHub Sponsors"
+        });
+        TEXT.put("support_browser_error", new String[]{
+                "Impossible d’ouvrir le navigateur.",
+                "Unable to open browser.",
+                "No se pudo abrir el navegador.",
+                "Impossibile aprire il browser.",
+                "Browser konnte nicht geöffnet werden."
+        });
+        TEXT.put("close", new String[]{"Fermer", "Close", "Cerrar", "Chiudi", "Schließen"});
     }
 
     private GameDatabase database;
@@ -173,12 +333,22 @@ public final class MainActivity extends Activity {
         getWindow().setSoftInputMode(
                 android.view.WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         database = new GameDatabase(this);
-        language = getPreferences(MODE_PRIVATE).getInt("language", 0);
+        language = getPreferences(MODE_PRIVATE).getInt("language", defaultLanguage());
         if (state != null) {
             language = state.getInt("language", language);
             currentGameId = state.getLong("game_id", -1);
         }
+        if (language < 0 || language >= 5) language = defaultLanguage();
         showHome();
+    }
+
+    private int defaultLanguage() {
+        String code = Locale.getDefault().getLanguage();
+        if ("fr".equals(code)) return 0;
+        if ("es".equals(code)) return 2;
+        if ("it".equals(code)) return 3;
+        if ("de".equals(code)) return 4;
+        return 1;
     }
 
     @Override
@@ -196,7 +366,7 @@ public final class MainActivity extends Activity {
 
     private String t(String key) {
         String[] values = TEXT.get(key);
-        return values == null ? key : values[language];
+        return (values == null || language < 0 || language >= values.length) ? key : values[language];
     }
 
     private void setScreen(LinearLayout content) {
@@ -347,7 +517,6 @@ public final class MainActivity extends Activity {
         container.addView(intro);
 
         button(container, "♥  " + t("support_github"), true, () -> openExternalUrl(GITHUB_SPONSORS_URL));
-        button(container, "☕  " + t("support_kofi"), false, () -> openExternalUrl(KOFI_URL));
 
         new AlertDialog.Builder(this)
                 .setTitle(t("support_title"))
@@ -366,7 +535,7 @@ public final class MainActivity extends Activity {
     }
 
     private void addLanguageControl(LinearLayout layout) {
-        String[] flags = {"🇫🇷", "🇬🇧", "🇪🇸"};
+        String[] flags = {"🇫🇷", "🇬🇧", "🇪🇸", "🇮🇹", "🇩🇪"};
         String[] names = TEXT.get("language_names");
         String[] options = new String[names.length];
         for (int i = 0; i < names.length; i++) {
@@ -821,7 +990,13 @@ public final class MainActivity extends Activity {
     }
 
     private Locale locale() {
-        return language == 1 ? Locale.ENGLISH : language == 2 ? new Locale("es") : Locale.FRENCH;
+        switch (language) {
+            case 1: return Locale.ENGLISH;
+            case 2: return new Locale("es");
+            case 3: return Locale.ITALIAN;
+            case 4: return Locale.GERMAN;
+            default: return Locale.FRENCH;
+        }
     }
 
     private void toast(String message) {

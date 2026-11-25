@@ -1,29 +1,29 @@
-# Contribuer à Dice10K
+# Contributing to Dice10K / Contribuer à Dice10K
 
-Merci de votre intérêt pour **Dice10K** ! Toutes les contributions sont les bienvenues, qu’il s’agisse de signaler un bug, d’améliorer la documentation, d’ajouter une langue ou de proposer du code.
+Thank you for your interest in **Dice10K**! Contributions of all kinds are welcome — bug reports, translations, documentation improvements, unit tests, and code.
 
-## Signaler un bug ou proposer une idée
+## Reporting Bugs & Suggesting Features
 
-Ouvrez une [issue sur GitHub](https://github.com/furcy75/Dice10k/issues) en précisant :
-- La version de **Dice10K** et la version d’Android utilisée.
-- Les étapes pour reproduire le problème (ou le cas d’usage de votre suggestion).
-- Le comportement attendu et le comportement observé.
+Open a [GitHub Issue](https://github.com/furcy75/Dice10k/issues) with:
+- Your **Dice10K** version and Android version.
+- Clear steps to reproduce the issue (or the use case for your suggestion).
+- Expected vs. actual behavior.
 
-## Proposer une modification (Pull Request)
+## Submitting a Pull Request
 
-1. **Forkez** le dépôt et créez une branche dédiée (`git checkout -b fix/mon-correctif` ou `feat/ma-fonctionnalite`).
-2. Gardez le projet **léger, hors ligne et sans dépendances superflues** : c’est un choix fondamental de Dice10K.
-3. Si vous ajoutez du texte visible à l’écran, pensez à le traduire dans les langues existantes (`MainActivity.java` : Français, English, Español).
-4. Vérifiez que le projet compile correctement :
+1. **Fork** the repository and create a branch (`git checkout -b fix/my-fix` or `feat/my-feature`).
+2. Keep the app **lightweight, offline-first, permission-free, and dependency-free**.
+3. If you add user-facing strings, translate them into all supported languages in `app/src/main/java/fr/jeudes10000/MainActivity.java` (**Français, English, Español, Italiano, Deutsch**).
+4. Make sure the project builds cleanly:
    ```sh
    ./gradlew testDebugUnitTest assembleDebug
    ```
-5. Ouvrez une **Pull Request** en décrivant clairement le changement et vos vérifications.
+5. Open a **Pull Request** describing your changes and how you tested them.
 
-## Ajouter une traduction
+## Adding a Translation
 
-Les chaînes d’interface sont regroupées dans la table `TEXT` de `app/src/main/java/fr/jeudes10000/MainActivity.java`, et les règles détaillées se trouvent dans `REGLES.md`. Toute nouvelle langue est la bienvenue !
+UI strings live in the `TEXT` map in `app/src/main/java/fr/jeudes10000/MainActivity.java`, and detailed game rules are in `REGLES.md`. New languages are always welcome!
 
-## Licence
+## License
 
-En contribuant à ce dépôt, vous acceptez que vos contributions soient publiées sous la même licence **[GNU GPL v3.0](./LICENSE)** que le projet.
+By contributing to this repository, you agree that your contributions will be licensed under the **[GNU GPL v3.0](./LICENSE)**.
